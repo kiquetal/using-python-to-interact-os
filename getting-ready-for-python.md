@@ -80,3 +80,35 @@ Interpreted languages: execute code directly.
             print(name)
 
     
+#### Module csv
+
+    import cv
+    Read a csv file
+    f = open("file.csv", "w")
+    csv_f = csv.reader(f)
+    for row in csv_f:
+        name, phone, role = row
+    f.close()
+
+    Write a csv file
+    with open(" file.csv", "w") as file:
+        writer = csv.writer(file)
+        writer.writerow(["name", "phone", "role"])
+
+    DictReader: return each data into a dictionary
+
+    with open('software.csv') as software:
+        reader = csv.DictReader(software)
+        for row in reader:
+            print(row['name'])
+
+    users = [{"name" :"John","username" :"john123"},
+             {"name" :"Mary","username" :"mary123"}]
+    keys = ["name", "username"]
+
+    with open('users.csv', 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=keys)
+        writer.writeheader()
+        for user in users:
+            writer.writerow(user)
+
