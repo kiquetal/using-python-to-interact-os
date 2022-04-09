@@ -66,5 +66,17 @@ Interpreted languages: execute code directly.
     with open("file.txt", "w") as file:
         file.write("Hello World")
     
+    os.getcwd()
+    os.mkdir("new_folder")
+    os.chdir("new_folder")
+    os.rmdir("new_folder") // only if the folder is empty
+    os.listdir("sites) // return string
     
+    for name in os.listdir("sites"):
+        fullname = os.path.join("sites", name)
+        if os.path.isdir(fullname):
+            print(name)
+        else:
+            print(name)
+
     
