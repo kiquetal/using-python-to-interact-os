@@ -138,4 +138,7 @@ Interpreted languages: execute code directly.
     re"cat|dog"
     search or findAll    
     Repetition characters
+    Repeated matches * (repeated many times included zero times)
+    Repeated matches + (repeated one or more times)
+    Repeated matches ? (repeated zero or one times)
 
