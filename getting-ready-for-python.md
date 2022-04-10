@@ -116,3 +116,26 @@ Interpreted languages: execute code directly.
 #### Regular Expressions
 
     A search query expressed by type of pattern.
+    
+    index = log.index("[")
+    import re
+    regex = r"\[(\d+)\]"
+    match = re.search(regex, log)
+    if match:
+        print(match.group(1))
+    else:
+        print("No match")
+    ^beggining of line
+    $end of line
+
+    re.search(r"re","regrex",re.IGNORECASE)
+    grep l.rts /usr/share/dict/words
+
+    Character classes [Pp]ython 
+    [a-z] [A-Z] [0-9] [a-zA-Z] [a-zA-Z0-9]
+    [^a-z] [^A-Z] [^0-9] [^a-zA-Z] [^a-zA-Z0-9]
+    not a letter [^a-zA-Z] 
+    re"cat|dog"
+    search or findAll    
+    Repetition characters
+
