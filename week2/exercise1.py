@@ -24,9 +24,9 @@ def contents_of_file(filename):
         reader = csv.DictReader(file,fieldnames=["name","color","type"])
         # Process each item of the dictionary
         for row in reader:
-            return_string += "a {} {} is {}\n".format(row["color"], row["name"], row["type"])
+            type = row["type"].replace("\n","")
+            return_string += "a {} {} is {}\n".format(row["color"], row["name"], type)
     return return_string
 
 #Call the function
-#print(contents_of_file("flowers.csv"))
-
+print(contents_of_file("flowers.csv"))

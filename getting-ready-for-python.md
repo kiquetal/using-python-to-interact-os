@@ -112,3 +112,7 @@ Interpreted languages: execute code directly.
         for user in users:
             writer.writerow(user)
 
+
+#### Regular Expressions
+
+    A search query expressed by type of pattern.
