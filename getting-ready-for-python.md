@@ -142,3 +142,24 @@ Interpreted languages: execute code directly.
     Repeated matches + (repeated one or more times)
     Repeated matches ? (repeated zero or one times)
 
+    Capturing group
+
+    Portions of the pattern around parentheses
+    result = re.search(r"^(\w*))
+    result.group()
+
+    Specific number of times.
+    numeric repetitions qualifiers 
+    {n} {n,} {n,m}
+    print(re.search(r"[a-z]{5}","python"))
+    word boundary
+    \b
+    re.findall(r"\b\w{5}\b","python")
+    re.findall(r"\w{7,}","python")
+    
+    re.split(r"[.?!]","This is a sentence. This is another sentence.")
+     with capturing parentheses will include the expression inside split
+      
+    re.sub(r"[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}","[REDACTED]", "
+    re.sub(r"^([\w . -[*),([\w .-])$",r"\2 \1","Lovelace, Ada" )
+
