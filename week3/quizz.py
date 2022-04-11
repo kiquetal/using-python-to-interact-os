@@ -126,8 +126,17 @@ means looking for text that begins with a hash mark (#) and replacing it with do
 # of the substitution method to complete this function:
 import re
 def transform_comments(line_of_code):
-    result = re.sub(___)
+    result = re.sub(r"([#]+)",r"//",line_of_code)
     return result
+
+print(transform_comments("### Start of program"))
+# Should be "// Start of program"
+print(transform_comments("  number = 0   ## Initialize the variable"))
+# Should be "  number = 0   // Initialize the variable"
+print(transform_comments("  number += 1   # Increment the variable"))
+# Should be "  number += 1   // Increment the variable"
+print(transform_comments("  return(number)"))
+# Should be "  return(number)"
 
 print(transform_comments("### Start of program"))
 # Should be "// Start of program"
@@ -146,8 +155,13 @@ that looks like this: (XXX) XXX-XXXX. Fill in the regular expression to complete
 
 import re
 def convert_phone_number(phone):
-    result = re.sub(___)
+    result = re.sub(r"([\d]{3})-([\d]{3})-\b([\d]{4})\b",r"(\1) \2-\3",phone)
     return result
+
+print(convert_phone_number("My number is 212-345-9999.")) # My number is (212) 345-9999.
+print(convert_phone_number("Please call 888-555-1234")) # Please call (888) 555-1234
+print(convert_phone_number("123-123-12345")) # 123-123-12345
+print(convert_phone_number("Phone number of Buckingham Palace is +44 303 123 7300")) # Phone number of Buckingham Palace is +44 303 123 7300
 
 print(convert_phone_number("My number is 212-345-9999.")) # My number is (212) 345-9999.
 print(convert_phone_number("Please call 888-555-1234")) # Please call (888) 555-1234
