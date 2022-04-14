@@ -26,8 +26,27 @@ def process():
         f.close()
         sorted_error = sorted(error.items(),key=operator.itemgetter(1),reverse=True)
         sorted_per_user = sorted(per_user.items())
-        print(sorted_error)
+        create_csv(sorted_error,"error")
+        create_csv(sorted_per_user,"info")
     
+
+
+def create_csv(tup,txt):
+  if txt == "info":
+    print(tup)
+    with open("user_statistics.csv","w") as fi:
+      fi.write("Username,INFO,ERROR\n")
+      for m in tup:
+        name,obj=m
+        fi.write(name+","+str(obj["info"])+","+str(obj["error"])+"\n")
+      fi.close()
+  if txt == "error":
+    with open("error_message.csv","w") as fi:
+      fi.write("Error,Count\n")
+      for m in tup:
+        name,cont = m
+        fi.write(name+","+str(cont)+"\n")
+      fi.close()
 
 
 def return_error_info(line):
